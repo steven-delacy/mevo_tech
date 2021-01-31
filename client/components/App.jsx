@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom'
-import ReactMapGL, { Marker } from 'react-map-gl';
+import ReactMapGL from 'react-map-gl';
 
-const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
 export default function App() {
-
-  const 
+  
+  const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
   const [viewport, setViewport] = useState({
     latitude: -41.28664,
@@ -21,12 +20,11 @@ export default function App() {
     <div>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+        mapboxApiAccessToken= 'pk.eyJ1Ijoic3RldmVuLWRlbGFjeSIsImEiOiJja2trZ253amUwcmUxMnZtenR4NnM2d2hwIn0.5kUakk3O8f-5pD7sS9Zq7w'
         onViewportChange={(viewport) => {
           setViewport(viewport)
         }}
       >
-
 
       </ReactMapGL>
     </div>

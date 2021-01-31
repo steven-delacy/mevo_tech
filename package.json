@@ -1,7 +1,7 @@
 {
   "name": "boilerplate-react-webpack",
   "version": "0.2.2",
-  "description": "A webpack React starter",
+  "description": "Mevo/ Mapbox tech demo",
   "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
   "main": "server/index.js",
   "author": "EDA",

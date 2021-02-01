@@ -2,25 +2,38 @@ import React from 'react'
 import request from 'superagent'
 
 
-request.get('https://api.mevo.co.nz/vehicles/all')
-    .then(res => {
-        console.log(res.body)
-    })
+class Mevoapi extends React.Component {
 
-request.get('https://api.mevo.co.nz/home-zones/all')
-    .then(res => {
-        
-    })
+    componentDidMount() {
+        console.log('componentDidMount')
+        this.getVehicles()
+    }
 
-const Mevoapi = () => {
+    // Creating request to access mevo vehicle JSON
+    getVehicles() {
+        request.get('https://api.mevo.co.nz/public/vehicles/all')
+            .then(res => {
+                const vehicles = response.body 
+            })
+    }
 
-    console.log('render')
+    // And again for homeZones
+    homeZone() {
+        request.get('https://api.mevo.co.nz/home-zones/all')
+            .then(res => {
+            })
+    }
 
-    return (
 
-        <h1>HI!</h1>
-
-    )
+    render() {
+        console.log('render')
+        return (
+            <>
+                
+                
+            </>
+        )
+    }
 }
 
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactMapGL from 'react-map-gl';
 
+import Mevoapi from './Mevoapi'
+
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
 class Mapbox extends React.Component {

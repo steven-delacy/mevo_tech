@@ -7,19 +7,18 @@ class Mapbox extends React.Component {
 
     //had to convert the react function to class based, left over code for ref
     //   const [viewport, setViewport] = useState({
-    //     latitude = -41.28664,
-    //     longitude = 174.77557,
+     //     longitude = 174.77557,
     //     zoom = 10
     //   });
 
     state = {
-    viewport: {
-        latitude: -41.28664,
-        longitude: 174.77557,
-        zoom: 12,
-        width: '800px',
-        height: '500px'
-    }
+        viewport: {
+            latitude: -41.28664,
+            longitude: 174.77557,
+            zoom: 12,
+            width: '800px',
+            height: '500px'
+        }
     }
 
     viewportChange = (viewport) => {

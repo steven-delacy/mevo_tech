@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMapGL from 'react-map-gl';
 
-import Mevoapi from './Mevoapi'
+import Mevoapi from './Mevo'
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 

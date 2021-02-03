@@ -1,25 +1,23 @@
 import React from 'react'
 import { getVehicles, homeZones } from '../api/api'
 
-
 class Mevo extends React.Component {
-
-    state = {
-        vehicleLocation: {},
-
-    }
 
     // using compDidMount to load data through state
     // allowing on refresh to show update
+    state = {
+        vehicleLocation: {},
+        homeZones: {}
+    }
+
+    // Mevo data
     componentDidMount() {
         this.vehicleData()
-
-        // .then((data) =>{
+        // .then((data) => {
         //     this.setState({
         //         vehicleLocation: JSON.parse(data)
         //     })
         // })
-        
     }
 
     vehicleData = () => {
@@ -33,24 +31,19 @@ class Mevo extends React.Component {
             })
     }
 
-    
-
-
     // Will have to use Markers to show mevo vehicles
-
     render() {
 
-        const MevoApi = this.state.vehicleLocation 
-
+        const vehicle = this.state.vehicleLocation
+        // const home = this.state.homeZones
         return (
             <>
                 <h2>mevo data</h2>
-                
+                <p>{vehicle.position}</p>
 
             </>
         )
     }
 }
-
 
 export default Mevo;

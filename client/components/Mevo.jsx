@@ -5,33 +5,48 @@ import { getVehicles, homeZones } from '../api/api'
 class Mevo extends React.Component {
 
     state = {
+        vehicleLocation: {},
 
     }
 
     // using compDidMount to load data through state
     // allowing on refresh to show update
     componentDidMount() {
-        console.log('got the data')
-        this.getMevoData()
+        this.vehicleData()
+
+        // .then((data) =>{
+        //     this.setState({
+        //         vehicleLocation: JSON.parse(data)
+        //     })
+        // })
+        
     }
 
-    getMevoData = () => {
+    vehicleData = () => {
+        console.log('this works')
         getVehicles()
-            .then(vehicles => {
+            .then(vehicleLocation => {
                 this.setState({
-                    vehicles: vehicles,
-                })
+                    vehicleLocation
+                }
+                )
             })
-        }
+    }
+
+    
 
 
-        // Will have to use Markers to show mevo vehicless
+    // Will have to use Markers to show mevo vehicles
 
     render() {
+
+        const MevoApi = this.state.vehicleLocation 
+
         return (
             <>
-                <h2> Mevo Data</h2>
-                {this.state}
+                <h2>mevo data</h2>
+                
+
             </>
         )
     }

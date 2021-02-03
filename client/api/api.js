@@ -6,6 +6,7 @@ const baseUrl = 'https://api.mevo.co.nz/public'
 export function getVehicles() {
     return request.get(baseUrl + '/vehicles/all')
         .then(response => {
+            console.log(response.text)
             return response.text
         })
 }
@@ -14,6 +15,7 @@ export function getVehicles() {
 export function homeZones() {
     return request.get(baseUrl + '/home-zones/all')
         .then(response => {
-            return response.send
+            // console.log(response.text)
+            return response.text
         })
 }

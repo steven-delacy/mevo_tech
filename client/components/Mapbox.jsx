@@ -35,6 +35,12 @@ class Mapbox extends React.Component {
                     mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
                     onViewportChange={this.viewportChange}>
                 </ReactMapGL>
+
+                {/* <Marker
+                key={scrap.id}
+                latitude={scrap.latitude}
+                longitude={scrap.longitude}>
+                </Marker> */}
             </div>
         )
     }

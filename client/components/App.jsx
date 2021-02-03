@@ -12,12 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="mapbox-container">
-
           <Mapbox />
-          
-          
-        </div>
         <Mevo />
       </div>
     )

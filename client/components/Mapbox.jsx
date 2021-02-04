@@ -1,18 +1,20 @@
 import React from 'react';
-import ReactMapGL from 'react-map-gl';
-
-import Mevoapi from './Mevo'
+import ReactMapGL, { GeolocateControl, NavigationControl, FullscreenControl } from 'react-map-gl';
+import MapMarker from './MapMarker';
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 
+const navControlStyle = {
+    right: 10,
+    bottom: 10
+};
+
+const fullscreenControlStyle = {
+    right: 10,
+    top: 10
+};
+
 class Mapbox extends React.Component {
-
-    //had to convert the react function to class based, left over code for ref
-    //   const [viewport, setViewport] = useState({
-     //     longitude = 174.77557,
-    //     zoom = 10
-    //   });
-
     state = {
         viewport: {
             latitude: -41.28664,
@@ -20,28 +22,42 @@ class Mapbox extends React.Component {
             zoom: 12,
             width: '800px',
             height: '500px'
-        }
+        },
+        userLocation: {},
     }
 
-    viewportChange = (viewport) => {
+    onViewportChange = (viewport) => {
         this.setState({ viewport });
+    }
+
+    onGeolocate = (geoLocation) => {
+        this.setState({
+            userLocation: geoLocation
+        })
     }
 
     render() {
         return (
-            <div>
-                <ReactMapGL
-                    {...this.state.viewport}
-                    mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-                    onViewportChange={this.viewportChange}>
-                </ReactMapGL>
+            <ReactMapGL
+                {...this.state.viewport}
+                mapboxApiAccessToken={MAPBOX_TOKEN}
+                onViewportChange={this.onViewportChange}>
 
-                {/* <Marker
-                key={scrap.id}
-                latitude={scrap.latitude}
-                longitude={scrap.longitude}>
-                </Marker> */}
-            </div>
+                <GeolocateControl
+                    positionOptions={{ enableHighAccuracy: true }}
+                    trackUserLocation={true}
+                    //on page load centre on user
+                    auto={true}
+                    onGeolocate={this.onGeolocate}
+                />
+
+                <NavigationControl style={navControlStyle} />
+                <FullscreenControl style={fullscreenControlStyle} on />
+
+                {this.props.vehicleLocations.map((location, i) => (
+                    <MapMarker key={`map-marker-${i}`} location={location} />
+                ))}
+            </ReactMapGL>
         )
     }
 }

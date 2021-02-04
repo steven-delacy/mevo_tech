@@ -1,19 +1,37 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
-
 
 // Class imports 
 import Mapbox from './Mapbox'
-import Mevo from './Mevo'
-
+import { fetchVehicles } from '../api/api'
 
 class App extends React.Component {
+  state = {
+    vehicleLocations: [],
+    homeZones: []
+  }
+
+  // Mevo data
+  /**
+   * 
+   */
+  componentDidMount() {
+    this.getVehicleData()
+  }
+
+  /** Component calls api method to retrieve js array of vehicle positions */
+  getVehicleData = () => {
+    fetchVehicles()
+      .then(vehicleLocations => {
+        this.setState({
+          vehicleLocations: vehicleLocations
+        })
+      })
+  }
 
   render() {
     return (
       <div>
-          <Mapbox />
-        <Mevo />
+        <Mapbox vehicleLocations={this.state.vehicleLocations} />
       </div>
     )
   }

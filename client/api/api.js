@@ -3,11 +3,14 @@ import request from 'superagent'
 const baseUrl = 'https://api.mevo.co.nz/public'
 
 // Creating request to access mevo vehicle JSON
-export function getVehicles() {
+/** API call to fetch mevo vehicle locations
+ * @returns JSON array of vehicle locations
+ */
+export function fetchVehicles() {
     return request.get(baseUrl + '/vehicles/all')
+        .accept("application/json")
         .then(response => {
-            console.log(response.text)
-            return response.text
+            return response.body
         })
 }
 

@@ -7,11 +7,10 @@ const MapMarker = (props) => {
         <Marker
             latitude={Number(props.location.position.latitude)}
             longitude={Number(props.location.position.longitude)}
-            onCli
         >
             <img width={25} src={props.location.iconUrl} />
         </Marker>
     )
 }
 
-export default MapMarker
+export default MapMarker;

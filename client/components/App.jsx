@@ -11,9 +11,7 @@ class App extends React.Component {
   }
 
   // Mevo data
-  /**
-   * 
-   */
+  /**executes render of retrieved api array/object */
   componentDidMount() {
     this.getVehicleData()
   }

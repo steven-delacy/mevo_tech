@@ -2,7 +2,6 @@ import request from 'superagent'
 
 const baseUrl = 'https://api.mevo.co.nz/public'
 
-// Creating request to access mevo vehicle JSON
 /** API call to fetch mevo vehicle locations
  * @returns JSON array of vehicle locations
  */

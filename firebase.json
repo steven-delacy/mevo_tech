@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "site": "mevodemo-18dbe",
+    "public": "client",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
+
